@@ -83,7 +83,7 @@ function randomNegative() {
   return randomBoolean() ? -1 : 1;
 }
 
-window.setInterval(function () {
+function updateSlogan() {
   $sloganAll.removeAttr('style');
   
   if (curSlogan == slogans.length) {
@@ -137,4 +137,8 @@ window.setInterval(function () {
   $barsAll.css('background', color);
   
   curSlogan++;
-}, 4000);
+}
+
+window.setInterval(updateSlogan, 4000);
+
+updateSlogan();
