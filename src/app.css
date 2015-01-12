@@ -20,6 +20,7 @@
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     font-feature-settings: "kern" 1;
+    font-feature-settings: "liga" 0;
 }
   
   h1, h2, h3 {
