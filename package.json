@@ -1,0 +1,14 @@
+{
+  "name": "coverPlastic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "switch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Leo Koppelkamm",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp-autoprefixer": "^2.0.0"
+  }
+}
