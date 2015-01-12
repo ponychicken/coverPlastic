@@ -28,7 +28,7 @@ var curSlogan = 0;
 
 var colors = ['#FF0000', '#00C34B', '#005FFF'];
 
-var colorsIndex = localStorage.getItem('colorsIndex') || Math.floor(Math.random() * 2.99);
+var colorsIndex = localStorage.getItem('colorsIndex') || 0;
 var color = colors[colorsIndex];
 
 $('h1, h2, #barSlogan1, #barSlogan2').css('background', color);
@@ -137,4 +137,4 @@ window.setInterval(function () {
   $barsAll.css('background', color);
   
   curSlogan++;
-}, 1500);
+}, 4000);
