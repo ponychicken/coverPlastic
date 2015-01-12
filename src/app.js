@@ -1,18 +1,18 @@
 var slogans = [
-  "The Battle for Plastic is On!",
-  "Who is Pulling the Strings?",
-  "It is Time to Take Charge!",
+  "The Battle for Plastic Is On!",
+  "Who Is Pulling the Strings?",
+  "It Is Time to Take Charge!",
   "Is it Really a Makers Revolution?",
   "It is Time to Reclaim Plastic",
-  "A Battle over Your Heart, Mind and Wallet",
-  "We Decide what 3D Printing Means",
-  "Plastic is (Again) the Future",
-  "Standards are still to be Set",
-  "What should  Consumerism be?",
-  "The Battle for Plastic is On!",
+  "A Battle Over Your Heart, Mind and Wallet",
+  "We Decide What 3D Printing Means",
+  "Plastic Is (Again) the Future",
+  "Standards Are Still to be Set",
+  "What Should Consumerism Be?",
+  "The Battle for Plastic Is On!",
   "We Define the Future of Plastic",
   "It’s an Industry in the Making",
-  "We can Turn Potentials into Realities"
+  "We Can Turn Potentials into Realities"
 ];
 
 var $part1 = $('#sloganPart1'), 
