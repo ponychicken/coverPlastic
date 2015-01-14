@@ -136,7 +136,6 @@ function updateSlogan() {
     offsetFirst  += desiredChange * 3;
     offsetSecond += desiredChange * 3;
   }
-  offsetFirst /= aspectRatio;
   
   $combined1.css({
     transform: 'rotate(' + rotate + 'deg)',
