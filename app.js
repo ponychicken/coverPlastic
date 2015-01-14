@@ -86,6 +86,9 @@ function randomNegative() {
 function updateSlogan() {
   $sloganAll.removeAttr('style');
   
+  var barHeight = $bar1.height();
+  var windowHeight = $(window).height();
+  
   if (curSlogan == slogans.length) {
     curSlogan = 0;
   }
@@ -116,14 +119,33 @@ function updateSlogan() {
   
   if (inverted) rotate *= -1;
   
+  var offsetFirst = (inverted) ? randomBetween(6, 13) : randomBetween(0, 4);
+  var offsetSecond = (inverted) ? randomBetween(30, 42) : randomBetween(35, 44);
+  
+  // Calculate distance and correct if necessary
+  var distance = (offsetSecond * windowHeight / 100) - ((offsetFirst * windowHeight / 100) + barHeight);
+  
+  // Distance as a ratio of the window height
+  var distanceRatio = distance / windowHeight;
+  
+  if (distanceRatio > 0.2) {
+    var desiredChange = distanceRatio / 0.2 * 1.3;
+    offsetFirst  *= desiredChange;
+    offsetSecond /= desiredChange;
+    
+    offsetFirst  += desiredChange * 3;
+    offsetSecond += desiredChange * 3;
+  }
+  offsetFirst /= aspectRatio;
+  
   $combined1.css({
     transform: 'rotate(' + rotate + 'deg)',
-    top: (inverted) ? randomBetween(6, 13)  + '%': randomBetween(0, 4) + '%'
+    top: offsetFirst  + '%'
   });
   
   $combined2.css({
     transform: 'rotate(' + -1 * rotate + 'deg)',
-    top: (inverted) ? randomBetween(30, 42)  + '%': randomBetween(35, 44) + '%'
+    top: offsetSecond  + '%'
   });
   
   $bar1.css({
