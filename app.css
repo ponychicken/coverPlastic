@@ -1,0 +1,147 @@
+
+@font-face {
+  font-family: 'GT Davide';
+  src: url('assets/fonts/GTDaVinne.woff');
+}
+
+body {
+  font-family: 'GT Davide';
+  /*Base font size*/
+  font-size: 6.2vw;
+  color: white;
+  /* background-color: green; */
+  /* background: url(back.png)  no-repeat 0% 0% fixed; */
+
+  background-size: contain;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden; 
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-font-feature-settings: "kern" 1;
+  -moz-font-feature-settings: "kern" 1;
+  font-feature-settings: "kern" 1;
+  -webkit-font-feature-settings: "liga" 0;
+  -moz-font-feature-settings: "liga" 0;
+  font-feature-settings: "liga" 0;
+}
+
+h1, h2, h3 {
+  background-color: red;
+  padding: 0.24em;
+  padding-bottom: 0.2em;
+  font-weight: 400;
+  position: absolute;
+  margin: 0; 
+  letter-spacing: -0.005em;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+h1 {
+  font-size: 1em;
+  text-transform: uppercase;
+  top: 68%;
+  left: 14%;
+}
+
+h2 {
+  font-size: 0.7em;
+}
+
+h3 {
+  font-size: 1.9em;
+}
+
+.underlined {
+  border-bottom: 0.1em solid white;
+  line-height: 0.8;
+  display: inline-block;
+  margin-bottom: 0.05em;
+}
+
+#title {
+  -webkit-transform: rotate(-2deg);
+  transform: rotate(-2deg);
+  display: inline-block;
+}
+
+#subtitle {
+  -webkit-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+  top: 84%;
+  right: -2%;
+  white-space: nowrap;
+  padding-right: 1em;
+}
+
+#sloganPart1, #barSlogan1, #sloganPart2, #barSlogan2 {
+  padding: 0.24em;
+  padding-bottom: 0.12em;
+}
+
+#sloganPart1, #barSlogan1 {
+  top: 1%;
+  -webkit-transform: rotate(4deg);
+  transform: rotate(4deg);
+}
+#sloganPart2, #barSlogan2 {
+  top: 39%;
+  -webkit-transform: rotate(-4deg);
+  transform: rotate(-4deg);
+}
+
+#sloganPart1, #sloganPart2 {
+  background: none;
+
+  white-space: nowrap;
+  z-index: 2;
+}
+
+#barSlogan1 {
+  -webkit-transform: rotate(4deg) translate(-20vw, 0);
+  transform: rotate(4deg) translate(-20vw, 0);
+}
+
+#barSlogan2 {
+  -webkit-transform: rotate(-4deg) translate(-20vw, 0);
+  transform: rotate(-4deg) translate(-20vw, 0);
+}
+
+#barSlogan1, #barSlogan2 {
+  width: 150vw;
+  z-index: -1;
+  background: red;
+  /* left: -7%; */
+}
+
+@media screen and (min-aspect-ratio: 17/10) {
+  body {
+    font-size: 6vw;
+  }
+}
+
+@media screen and (min-aspect-ratio: 18/10) {
+  body {
+    font-size: 5vw;
+  }
+}
+
+@media screen and (max-aspect-ratio: 12/10) {
+  body {
+    font-size: 7vw;
+  }
+}
+
+@media screen and (max-aspect-ratio: 10/10) {
+  body {
+    font-size: 8vw;
+  }
+}
+
+@media screen and (max-aspect-ratio: 9/10) {
+  body {
+    font-size: 9vw;
+  }
+}
