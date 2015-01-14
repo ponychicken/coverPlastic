@@ -134,10 +134,15 @@ function updateSlogan() {
     transform: 'rotate(' + -1 * rotate + 'deg) translate(-20vw, 0)'
   });
   
-  $barsAll.css('background', color);
+  // Force their height to have the same as the other by filling with invisible Text
+  $barsAll.text('A').css({
+    color: color,
+    background: color
+  });
   
   curSlogan++;
 }
+
 
 window.setInterval(updateSlogan, 4000);
 

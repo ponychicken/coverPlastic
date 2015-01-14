@@ -64,14 +64,14 @@ h3 {
 #subtitle {
   transform: rotate(-3deg);
   top: 84%;
-  left: 30%;
+  right: -2%;
   white-space: nowrap;
-  width: 3000px;
+  padding-right: 1em;
 }
 
 #sloganPart1, #barSlogan1, #sloganPart2, #barSlogan2 {
   padding: 0.24em;
-  padding-bottom: 0.08em;
+  padding-bottom: 0.12em;
 }
 
 #sloganPart1, #barSlogan1 {
@@ -105,8 +105,32 @@ h3 {
   /* left: -7%; */
 }
 
-@media (max-width: 600px) {
-.facet_sidebar {
-  display: none;
+@media screen and (min-aspect-ratio: 17/10) {
+  body {
+    font-size: 6vw;
+  }
 }
+
+@media screen and (min-aspect-ratio: 18/10) {
+  body {
+    font-size: 5vw;
+  }
+}
+
+@media screen and (max-aspect-ratio: 12/10) {
+  body {
+    font-size: 7vw;
+  }
+}
+
+@media screen and (max-aspect-ratio: 10/10) {
+  body {
+    font-size: 8vw;
+  }
+}
+
+@media screen and (max-aspect-ratio: 9/10) {
+  body {
+    font-size: 9vw;
+  }
 }
