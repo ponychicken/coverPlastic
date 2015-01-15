@@ -9,10 +9,7 @@ body {
   /*Base font size*/
   font-size: 6.2vw;
   color: white;
-  /* background-color: green; */
-  /* background: url(back.png)  no-repeat 0% 0% fixed; */
-
-  background-size: contain;
+  background: white;
   width: 100vw;
   height: 100vh;
   margin: 0;
