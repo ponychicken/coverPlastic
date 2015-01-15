@@ -91,8 +91,7 @@ function switchColors() {
 }
 
 function newSlogan() {
-  switchColors();
-  
+
   var newSlogans = $sloganAll.clone();
   
   var $part1 = newSlogans.find('.sloganPart1'), 
@@ -132,29 +131,13 @@ function newSlogan() {
   if (inverted) rotate *= -1;
   
   var offsetFirst = (inverted) ? randomBetween(6, 13) : randomBetween(0, 4);
-  // var offsetSecond = (inverted) ? randomBetween(30, 42) : randomBetween(35, 44);
-  // 
-  // // Calculate distance and correct if necessary
-  // var distance = (offsetSecond * windowHeight / 100) - ((offsetFirst * windowHeight / 100) + barHeight);
-  // 
-  // // Distance as a ratio of the window height
-  // var distanceRatio = distance / windowHeight;
-  
-  // if (distanceRatio > 0.2) {
-  //   var desiredChange = distanceRatio / 0.2 * 1.3;
-  //   offsetFirst  *= desiredChange;
-  //   offsetSecond /= desiredChange;
-  //   
-  //   offsetFirst  += desiredChange * 3;
-  //   offsetSecond += desiredChange * 3;
-  // }
   
   $part1.css({
     transform: 'rotate(' + rotate + 'deg) translate(-20vw, ' + offsetFirst + '%)',
   });
   
   $part2.css({
-    transform: 'rotate(' + -1 * rotate + 'deg) translate(-20vw, ' + -2 + '%)',
+    transform: 'rotate(' + -1 * rotate + 'deg) translate(-20vw, -2%)',
   });
   
   $combined.css({
@@ -165,7 +148,7 @@ function newSlogan() {
 
   
   // Now also rotate and displace the whole group
-  if (globalIndex > 4) {
+  if (globalIndex > 1) {
     var rotate = randomBetween(-30, 30);
     var top = randomBetween(0, 15);
     
@@ -174,14 +157,18 @@ function newSlogan() {
     });
   }
 
-  
   curSlogan++;
   globalIndex++;
+  switchColors();
+  
+  while ($('.slogans').length > 20) {
+    $('.slogans').first().remove();
+  }
 }
 
 setup();
 
-//window.setInterval(newSlogan, 4000);
+window.setInterval(newSlogan, 4000);
 
 newSlogan();
 
