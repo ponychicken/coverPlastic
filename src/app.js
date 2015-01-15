@@ -129,7 +129,7 @@ function newSlogan() {
   }
   
   // Modify position and rotation a bit
-  var rotate = randomBetween(2, 4);
+  var rotate = randomBetween(2, 7);
   var inverted = randomBoolean();
   
   if (inverted) rotate *= -1;
@@ -178,14 +178,22 @@ function newSlogan() {
   
   curSlogan++;
   
+  // Now also rotate and displace the whole group
+  rotate = randomBetween(-10, 10);
+  top = randomBetween(0, 15);
+  
+  // newSlogans.css({
+  //   transform: "rotate("+  rotate + "deg)",
+  //   top: top + "%"
+  // });
   
 }
 
 setup();
 
-//window.setInterval(updateSlogan, 4000);
+//window.setInterval(newSlogan, 4000);
 
-//updateSlogan();
+newSlogan();
 
 window.onresize = function () {
   windowHeight = $(window).height();
