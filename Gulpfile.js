@@ -56,8 +56,9 @@ gulp.task('deploy', function () {
 });
 
 // Package
+gulp.task('package', ['all', 'zip']);
+
 gulp.task('zip', function () {
-	gulp.start('all');
 	gulp.src(['dist/*', 'other/*'])
 		.pipe(zip('Cover.zip'))
 		.pipe(gulp.dest(''));
