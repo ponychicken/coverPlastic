@@ -74,44 +74,25 @@ h3 {
   padding-right: 1em;
 }
 
-#sloganPart1, #barSlogan1, #sloganPart2, #barSlogan2 {
+.sloganPart1{
+  top: 1%;
+}
+.sloganPart2 {
+  top: 39%;
+}
+
+.sloganPart1, .sloganPart2 {
   padding: 0.24em;
   padding-bottom: 0.12em;
-}
-
-#sloganPart1, #barSlogan1 {
-  top: 1%;
-  -webkit-transform: rotate(4deg);
-  transform: rotate(4deg);
-}
-#sloganPart2, #barSlogan2 {
-  top: 39%;
-  -webkit-transform: rotate(-4deg);
-  transform: rotate(-4deg);
-}
-
-#sloganPart1, #sloganPart2 {
   background: none;
-
   white-space: nowrap;
-  z-index: 2;
+  padding-left: calc(0.24em + 20vw);
 }
 
-#barSlogan1 {
-  -webkit-transform: rotate(4deg) translate(-20vw, 0);
-  transform: rotate(4deg) translate(-20vw, 0);
-}
-
-#barSlogan2 {
-  -webkit-transform: rotate(-4deg) translate(-20vw, 0);
-  transform: rotate(-4deg) translate(-20vw, 0);
-}
-
-#barSlogan1, #barSlogan2 {
-  width: 150vw;
-  z-index: -1;
-  background: red;
-  /* left: -7%; */
+.slogans {
+  height: 100%;
+  position: absolute;
+  top: 0;
 }
 
 @media screen and (min-aspect-ratio: 17/10) {
