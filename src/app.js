@@ -15,28 +15,22 @@ var slogans = [
   "We Can Turn Potentials into Realities"
 ];
 
-var $part1 = $('#sloganPart1'), 
-    $part2 = $('#sloganPart2'),
-    $combined1 = $('#sloganPart1, #barSlogan1'),
-    $combined2 = $('#sloganPart2, #barSlogan2'),
-    $bar1 = $('#barSlogan1'),
-    $bar2 = $('#barSlogan2');
-    $sloganAll = $combined1.add($combined2);
-    $barsAll = $bar1.add($bar2);
+var $sloganAll = $('.slogans');
     
 var curSlogan = 0;
 
 var colors = ['#FF0000', '#00C34B', '#005FFF'];
-
-var colorsIndex = localStorage.getItem('colorsIndex') || 0;
+var colorsIndex = 0;
 var color = colors[colorsIndex];
 
 $('h1, h2, #barSlogan1, #barSlogan2').css('background', color);
 
-colorsIndex++;
-if (colorsIndex == 3) colorsIndex = 0;
+
 
 localStorage.setItem('colorsIndex', colorsIndex);
+
+var barHeight = 0;
+var windowHeight = $(window).height();
 
 function getBreakPoint(text) {
   if (text.indexOf("  ") != -1) {
@@ -83,22 +77,43 @@ function randomNegative() {
   return randomBoolean() ? -1 : 1;
 }
 
-function updateSlogan() {
+function setup() {
   $sloganAll.removeAttr('style');
+  barHeight = $sloganAll.find('.barSlogan1').height();
+  $sloganAll.remove();
+}
+
+function switchColors() {
+  colorsIndex++;
+  if (colorsIndex == 3) colorsIndex = 0;
+  color = colors[colorsIndex];
+}
+
+function newSlogan() {
+  switchColors();
   
-  var barHeight = $bar1.height();
-  var windowHeight = $(window).height();
+  var newSlogans = $sloganAll.clone();
+  
+  var $part1 = newSlogans.find('.sloganPart1'), 
+  $part2 = newSlogans.find('.sloganPart2'),
+  $combined1 = newSlogans.find('.sloganPart1, .barSlogan1'),
+  $combined2 = newSlogans.find('.sloganPart2, .barSlogan2'),
+  $bar1 = newSlogans.find('.barSlogan1'),
+  $bar2 = newSlogans.find('.barSlogan2'),
+  $barsAll = newSlogans.find('.barSlogan1, .barSlogan2');
+
+  $('body').append(newSlogans);
   
   if (curSlogan == slogans.length) {
     curSlogan = 0;
   }
-
+  
   var text = slogans[curSlogan];
   var parts = getParts(text);
   
   $part1.html(parts[0]);
   $part2.html(parts[1]);
-  
+
   // Get width and reduce fontsize if necessary
   var width1 = $part1.width();
   var width2 = $part2.width();
@@ -110,7 +125,7 @@ function updateSlogan() {
     var reduceBy = screenWidth * 0.9 / largestWidth;
     
     // Normally font size is 2em
-    $sloganAll.css('font-size', Math.min(1.9, reduceBy * 2) + 'em');
+    newSlogans.children().css('font-size', Math.min(1.9, reduceBy * 2) + 'em');
   }
   
   // Modify position and rotation a bit
@@ -162,9 +177,16 @@ function updateSlogan() {
   });
   
   curSlogan++;
+  
+  
 }
 
+setup();
 
-window.setInterval(updateSlogan, 4000);
+//window.setInterval(updateSlogan, 4000);
 
-updateSlogan();
+//updateSlogan();
+
+window.onresize = function () {
+  windowHeight = $(window).height();
+};

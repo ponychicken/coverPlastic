@@ -69,38 +69,37 @@ h3 {
   padding-right: 1em;
 }
 
-#sloganPart1, #barSlogan1, #sloganPart2, #barSlogan2 {
+.sloganPart1, .barSlogan1, .sloganPart2, .barSlogan2 {
   padding: 0.24em;
   padding-bottom: 0.12em;
 }
 
-#sloganPart1, #barSlogan1 {
+.sloganPart1, .barSlogan1 {
   top: 1%;
   transform: rotate(4deg);
 }
-#sloganPart2, #barSlogan2 {
+.sloganPart2, .barSlogan2 {
   top: 39%;
   transform: rotate(-4deg);
 }
 
-#sloganPart1, #sloganPart2 {
+.sloganPart1, .sloganPart2 {
   background: none;
 
   white-space: nowrap;
-  z-index: 2;
+
 }
 
-#barSlogan1 {
+.barSlogan1 {
   transform: rotate(4deg) translate(-20vw, 0);
 }
 
-#barSlogan2 {
+.barSlogan2 {
   transform: rotate(-4deg) translate(-20vw, 0);
 }
 
-#barSlogan1, #barSlogan2 {
+.barSlogan1, .barSlogan2 {
   width: 150vw;
-  z-index: -1;
   background: red;
   /* left: -7%; */
 }
