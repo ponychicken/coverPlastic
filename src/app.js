@@ -18,6 +18,7 @@ var slogans = [
 var $sloganAll = $('.slogans');
     
 var curSlogan = 0;
+var globalIndex = 0;
 
 var colors = ['#FF0000', '#00C34B', '#005FFF'];
 var colorsIndex = 0;
@@ -95,12 +96,8 @@ function newSlogan() {
   var newSlogans = $sloganAll.clone();
   
   var $part1 = newSlogans.find('.sloganPart1'), 
-  $part2 = newSlogans.find('.sloganPart2'),
-  $combined1 = newSlogans.find('.sloganPart1, .barSlogan1'),
-  $combined2 = newSlogans.find('.sloganPart2, .barSlogan2'),
-  $bar1 = newSlogans.find('.barSlogan1'),
-  $bar2 = newSlogans.find('.barSlogan2'),
-  $barsAll = newSlogans.find('.barSlogan1, .barSlogan2');
+      $part2 = newSlogans.find('.sloganPart2'),
+      $combined = newSlogans.find('.sloganPart1, .sloganPart2');
 
   $('body').append(newSlogans);
   
@@ -129,64 +126,57 @@ function newSlogan() {
   }
   
   // Modify position and rotation a bit
-  var rotate = randomBetween(2, 7);
+  var rotate = randomBetween(2, 5);
   var inverted = randomBoolean();
   
   if (inverted) rotate *= -1;
   
   var offsetFirst = (inverted) ? randomBetween(6, 13) : randomBetween(0, 4);
-  var offsetSecond = (inverted) ? randomBetween(30, 42) : randomBetween(35, 44);
+  // var offsetSecond = (inverted) ? randomBetween(30, 42) : randomBetween(35, 44);
+  // 
+  // // Calculate distance and correct if necessary
+  // var distance = (offsetSecond * windowHeight / 100) - ((offsetFirst * windowHeight / 100) + barHeight);
+  // 
+  // // Distance as a ratio of the window height
+  // var distanceRatio = distance / windowHeight;
   
-  // Calculate distance and correct if necessary
-  var distance = (offsetSecond * windowHeight / 100) - ((offsetFirst * windowHeight / 100) + barHeight);
+  // if (distanceRatio > 0.2) {
+  //   var desiredChange = distanceRatio / 0.2 * 1.3;
+  //   offsetFirst  *= desiredChange;
+  //   offsetSecond /= desiredChange;
+  //   
+  //   offsetFirst  += desiredChange * 3;
+  //   offsetSecond += desiredChange * 3;
+  // }
   
-  // Distance as a ratio of the window height
-  var distanceRatio = distance / windowHeight;
-  
-  if (distanceRatio > 0.2) {
-    var desiredChange = distanceRatio / 0.2 * 1.3;
-    offsetFirst  *= desiredChange;
-    offsetSecond /= desiredChange;
-    
-    offsetFirst  += desiredChange * 3;
-    offsetSecond += desiredChange * 3;
-  }
-  
-  $combined1.css({
-    transform: 'rotate(' + rotate + 'deg)',
-    top: offsetFirst  + '%'
+  $part1.css({
+    transform: 'rotate(' + rotate + 'deg) translate(-20vw, ' + offsetFirst + '%)',
   });
   
-  $combined2.css({
-    transform: 'rotate(' + -1 * rotate + 'deg)',
-    top: offsetSecond  + '%'
+  $part2.css({
+    transform: 'rotate(' + -1 * rotate + 'deg) translate(-20vw, ' + -2 + '%)',
   });
   
-  $bar1.css({
-    transform: 'rotate(' + rotate + 'deg) translate(-20vw, 0)'
+  $combined.css({
+    background: color,
+    width: '140vw'
   });
-  
-  $bar2.css({
-    transform: 'rotate(' + -1 * rotate + 'deg) translate(-20vw, 0)'
-  });
-  
-  // Force their height to have the same as the other by filling with invisible Text
-  $barsAll.text('A').css({
-    color: color,
-    background: color
-  });
-  
-  curSlogan++;
+
+
   
   // Now also rotate and displace the whole group
-  rotate = randomBetween(-10, 10);
-  top = randomBetween(0, 15);
+  if (globalIndex > 4) {
+    var rotate = randomBetween(-30, 30);
+    var top = randomBetween(0, 15);
+    
+    newSlogans.css({
+      transform: "rotate("+  rotate + "deg) translateY(" + top + "%)",
+    });
+  }
+
   
-  // newSlogans.css({
-  //   transform: "rotate("+  rotate + "deg)",
-  //   top: top + "%"
-  // });
-  
+  curSlogan++;
+  globalIndex++;
 }
 
 setup();
