@@ -1,4 +1,9 @@
 
+html {
+  width: 100%;
+  height: 100%;
+}
+
 @font-face {
   font-family: 'GT Davide';
   src: url('assets/fonts/GTDaVinne.woff');
@@ -10,8 +15,8 @@ body {
   font-size: 6.2vw;
   color: white;
   background: white;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   margin: 0;
   overflow: hidden; 
   -webkit-font-smoothing: antialiased;
@@ -119,5 +124,18 @@ h3 {
 @media screen and (max-aspect-ratio: 9/10) {
   body {
     font-size: 9vw;
+  }
+}
+
+body.mobile {
+  font-size: 10px;
+  background-image: url('assets/landscape.png');
+  background-size: cover;
+}
+
+@media (max-aspect-ratio: 1/1) {
+  body.mobile {
+    background-image: url('assets/portrait.png');
+    background-size: cover;
   }
 }
