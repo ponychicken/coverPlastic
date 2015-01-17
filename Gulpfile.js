@@ -59,7 +59,7 @@ gulp.task('deploy', function () {
 gulp.task('package', ['all', 'zip']);
 
 gulp.task('zip', function () {
-	gulp.src(['dist/*', 'other/*'])
+	gulp.src(['src/**', 'dist/*', 'other/*'])
 		.pipe(zip('Cover.zip'))
 		.pipe(gulp.dest(''));
 });

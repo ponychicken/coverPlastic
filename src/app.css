@@ -124,13 +124,13 @@ h3 {
 
 body.mobile {
   font-size: 10px;
-  background-image: url('assets/landscape.png');
+  background-image: url('landscape.svg');
   background-size: cover;
 }
 
 @media (max-aspect-ratio: 1/1) {
   body.mobile {
-    background-image: url('assets/portrait.png');
+    background-image: url('portrait.svg');
     background-size: cover;
   }
 }
