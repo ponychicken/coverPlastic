@@ -187,4 +187,14 @@ function setup() {
 	}
 }
 
-setup();
+getTitleData(function (msg) {
+  // Add link to body to have the parent redirect to the magazine URL
+  if (msg.isHomepage) {
+    document.body.addEventListener('click', function() {
+      redirectParent(msg.domain_path);
+    });
+    document.body.style.cursor = 'pointer';
+  }
+  
+  setup();
+});
